@@ -78,6 +78,39 @@ public class StreamMethodsExamples {
 		System.out.println(dishLength);
 		
 		
+		/*
+		 * Flat Map Stream Method - flatMap(): This method is used to flatten a Stream of collections to a Stream of objects. 
+		 * The objects are combined from all the collections in the original Stream.
+		 * 
+		 * The flatMap() operation has the effect of applying a one-to-many transformation to the elements of the Stream and 
+		 * then flattening the resulting elements into a new Stream.
+		 * 
+		 * What is Flattening?
+		 * In layman’s terms, flattening is referred to as merging multiple collections/arrays into one.
+		 * 
+		 * flatMap() is an intermediate operation and return a new Stream.
+		 * 
+		 * @Type Parameter: <R> The element type of the new stream
+		 * @Parameter: mapper a non-interfering, stateless function to apply to each element which produces a stream of new values
+		 * @Return: the new stream
+		 */
+		List<String> words = Arrays.asList("Hello", "World");
+		words.stream()
+		     .flatMap((String line) -> Arrays.stream(line.split("")))
+		     .distinct()
+		     .forEach(System.out::println);
+		
+		String str = "My Name is Karthikeyan Rajendran";
+		String[] split = str.split(" ");
+		List<String> list = Arrays.asList(split);
+		long count = list.stream()
+	     .flatMap((String line) -> Arrays.stream(line.split("")))
+	     .map(String::toLowerCase)
+	     .filter(x -> x.equals("a") || x.equals("e") || x.equals("i") || x.equals("o") || x.equals("u"))
+	     .count();
+		
+		System.out.println("Number of vowels in the given string "+str+" is: "+count);
+		
 	}
 	
 	@SuppressWarnings("unused")
