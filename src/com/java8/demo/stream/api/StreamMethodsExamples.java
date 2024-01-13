@@ -100,6 +100,7 @@ public class StreamMethodsExamples {
 		     .distinct()
 		     .forEach(System.out::println);
 		
+		// Count number of vowels in the given string or sentence using Java8 Stream API
 		String str = "My Name is Karthikeyan Rajendran";
 		String[] split = str.split(" ");
 		List<String> list = Arrays.asList(split);
