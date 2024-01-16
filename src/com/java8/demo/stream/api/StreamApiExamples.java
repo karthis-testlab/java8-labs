@@ -7,12 +7,12 @@ public class StreamApiExamples {
 
 	public StreamApiExamples() {
 		
-		List<Employee> empList = new ArrayList<Employee>();
-		Employee emp = new Employee(1, "Google", 22435.63);
-		Employee emp1 = new Employee(2, "Meta", 32435.63);
-		Employee emp2 = new Employee(3, "Google", 12435.63);
-		Employee emp3 = new Employee(4, "Microsoft", 62435.63);
-		Employee emp4 = new Employee(5, "Google", 25435.63);
+		List<Employees> empList = new ArrayList<Employees>();
+		Employees emp = new Employees(1, "Google", 22435.63);
+		Employees emp1 = new Employees(2, "Meta", 32435.63);
+		Employees emp2 = new Employees(3, "Google", 12435.63);
+		Employees emp3 = new Employees(4, "Microsoft", 62435.63);
+		Employees emp4 = new Employees(5, "Google", 25435.63);
 		empList.add(emp);
 		empList.add(emp1);
 		empList.add(emp2);

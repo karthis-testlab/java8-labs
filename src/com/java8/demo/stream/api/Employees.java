@@ -1,16 +1,16 @@
 package com.java8.demo.stream.api;
 
-public class Employee {
+public class Employees {
 
 	int id;
 	String orgName;
 	double salary;
 
-	public Employee() {		
+	public Employees() {		
 		
 	}
 
-	public Employee(int id, String orgName, double salary) {
+	public Employees(int id, String orgName, double salary) {
 		this.id = id;
 		this.orgName = orgName;
 		this.salary = salary;
