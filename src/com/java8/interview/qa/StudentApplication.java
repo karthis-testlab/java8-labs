@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -96,6 +97,15 @@ public class StudentApplication {
                 .collect(Collectors.groupingBy(Student::getDept, Collectors.counting()));
 		
 		System.out.println(groupByDeptName_count);
+		
+		// 10. Get Maximum student department name and count
+		
+		Entry<String, Long> entry = students.stream()
+        .collect(Collectors.groupingBy(Student::getDept, Collectors.counting()))
+        .entrySet().stream().max(Map.Entry.comparingByValue()).get();
+		
+		System.out.println(entry);
+		
 
 	}
 
