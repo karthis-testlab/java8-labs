@@ -3,6 +3,7 @@ package com.java8.interview.qa;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -49,7 +50,27 @@ public class StudentApplication {
 		
 		System.out.println(studentByCity_descendingOrder);
 		
+		// 4. Find all departments names
 		
+		List<String> departments = students.stream().map(Student::getDept)
+				                                    .collect(Collectors.toList());
+		
+		System.out.println(departments);
+		
+		// 5. Find unique departments name using distinct method
+		
+		List<String> departments_distinct = students.stream().map(Student::getDept)
+				                                           .distinct()
+                                                           .collect(Collectors.toList());
+		
+		System.out.println(departments_distinct);
+		
+		// 6. Find unique departments name using Set collection
+		
+		Set<String> departments_set = students.stream().map(Student::getDept)
+                                                        .collect(Collectors.toSet());
+		
+		System.out.println(departments_set);
 
 	}
 
