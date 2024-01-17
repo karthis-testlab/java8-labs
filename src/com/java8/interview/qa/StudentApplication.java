@@ -3,6 +3,7 @@ package com.java8.interview.qa;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -71,6 +72,30 @@ public class StudentApplication {
                                                         .collect(Collectors.toSet());
 		
 		System.out.println(departments_set);
+		
+		// 7. Find all contact number from the students list
+		
+		List<String> contacts = students.stream().flatMap(student -> student.getContacts().stream())
+				                                 .collect(Collectors.toList());
+		                  
+		System.out.println(contacts);
+		
+		// one to one relationship -> map
+		// one to many relationship -> flatMap
+		
+		// 8. Group the student by department name
+		
+		Map<String, List<Student>> groupByDeptName = students.stream()
+				                                     .collect(Collectors.groupingBy(Student::getDept));
+		
+		System.out.println(groupByDeptName);
+		
+		// 9. Group and count the number of students by department name
+		
+		Map<String, Long> groupByDeptName_count = students.stream()
+                .collect(Collectors.groupingBy(Student::getDept, Collectors.counting()));
+		
+		System.out.println(groupByDeptName_count);
 
 	}
 
