@@ -40,6 +40,16 @@ public class StudentApplication {
 		                                               .collect(Collectors.toList());
 		
 		System.out.println(studentByCity);
+		
+		// 3. Find the students who stays in the Karnataka and sort them by their name in descending order
+		
+		List<Student> studentByCity_descendingOrder = students.stream().filter(student -> student.getCity().equals("Karnataka"))
+                .sorted(Comparator.comparing(Student::getFirstName, Comparator.reverseOrder()))
+                .collect(Collectors.toList());
+		
+		System.out.println(studentByCity_descendingOrder);
+		
+		
 
 	}
 
