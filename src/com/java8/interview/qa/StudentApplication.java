@@ -121,6 +121,16 @@ public class StudentApplication {
 		
 		System.out.println(rankByDept);
 		
+		// 13. Find the student who had second rank
+		
+		Student secondRank = students.stream().sorted(Comparator.comparing(Student::getRank))
+		                                            .skip(1)
+		                                            .findFirst()
+		                                            .get();
+		
+		System.out.println(secondRank);
+		
+		
 
 	}
 
