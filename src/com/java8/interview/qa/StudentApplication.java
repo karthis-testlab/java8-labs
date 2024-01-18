@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -105,6 +106,20 @@ public class StudentApplication {
         .entrySet().stream().max(Map.Entry.comparingByValue()).get();
 		
 		System.out.println(entry);
+		
+		// 11. Find the average age of male and female students
+		
+		Map<String, Double> averageAgeByGender = students.stream().collect(Collectors
+				        .groupingBy(Student::getGender, Collectors.averagingDouble(Student::getAge)));
+		
+		System.out.println(averageAgeByGender);
+		
+		// 12. Find the highest rank in each department
+		
+		Map<String, Optional<Student>> rankByDept = students.stream().collect(Collectors
+				.groupingBy(Student::getDept, Collectors.maxBy(Comparator.comparing(Student::getRank))));
+		
+		System.out.println(rankByDept);
 		
 
 	}
