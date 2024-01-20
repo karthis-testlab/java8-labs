@@ -15,16 +15,23 @@ public class FindDuplicateInString {
 		String str = "all duplicate elements";
 		String[] stringArray = str.replace(" ", "").split("");
 		
-		List<String> collect = Arrays.stream(stringArray)
-	      .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
-	      .entrySet().stream()
-	      .filter(character -> character.getValue() > 1)
-	      .map(Map.Entry::getKey)
-	      .collect(Collectors.toList());
+		List<String> duplicateElements = Arrays.stream(stringArray)
+	          .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+	          .entrySet().stream()
+	          .filter(character -> character.getValue() > 1)
+	          .map(Map.Entry::getKey)
+	          .collect(Collectors.toList());
 		
-		System.out.println(collect);
+		System.out.println(duplicateElements);
 		
+		List<String> uniqueElements = Arrays.stream(stringArray)
+		          .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+		          .entrySet().stream()
+		          .filter(character -> character.getValue() == 1)
+		          .map(Map.Entry::getKey)
+		          .collect(Collectors.toList());
 		
+		System.out.println(uniqueElements);
 		
 	}
 
