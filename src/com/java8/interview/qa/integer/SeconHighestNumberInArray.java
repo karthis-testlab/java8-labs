@@ -5,7 +5,7 @@ import java.util.Comparator;
 
 public class SeconHighestNumberInArray {
 
-	// Java program to find second highest number from given array
+	// Java program to find second lowest and highest number from given array
 	public static void main(String[] args) {		
 		
 		int[] numbers = {5,9,11,2,8,21,1};
@@ -16,7 +16,15 @@ public class SeconHighestNumberInArray {
 		      .findFirst()
 		      .get();
 		
-		System.out.println(secondHighestInteger);
+		System.out.println("The second highest number in the given "+Arrays.toString(numbers)+" integer is "+secondHighestInteger);
+		
+		Integer secondLowestInteger = Arrays.stream(numbers).boxed()
+			      .sorted()
+			      .skip(1)
+			      .findFirst()
+			      .get();
+			
+		System.out.println("The second lowest number in the given "+Arrays.toString(numbers)+" integer is "+secondLowestInteger);
 
 	}
 
