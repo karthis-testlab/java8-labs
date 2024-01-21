@@ -13,13 +13,21 @@ public class FindNonRepeatElementInString {
 		String string = "ilovejavatechie";
 		String[] stringArray = string.split("");
 		
-		String firstUniqueElements = Arrays.stream(stringArray)
+		String firstUniqueElement = Arrays.stream(stringArray)
 		          .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
 		          .entrySet().stream()
 		          .filter(character -> character.getValue() == 1)
 		          .findFirst().get().getKey();
 		
-		System.out.println(firstUniqueElements);
+		System.out.println(firstUniqueElement);
+		
+		String firstRepeatElement = Arrays.stream(stringArray)
+		          .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+		          .entrySet().stream()
+		          .filter(character -> character.getValue() > 1)
+		          .findFirst().get().getKey();
+		
+		System.out.println(firstRepeatElement);
 		
 	}
 
