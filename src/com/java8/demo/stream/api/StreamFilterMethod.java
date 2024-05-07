@@ -10,18 +10,18 @@ public class StreamFilterMethod {
 		List<Integer> numbers = Arrays.asList(1,2,3,4,5,6,7,8,9,10,11,12);
 		
 		final List<Integer> output = numbers.stream()
-				.filter(x -> {
-					boolean isEven = x % 2 == 0;
-					boolean isGreaterThanFive = x > 5;
-					boolean isDivisibleByThree = x % 3 == 0;
-					return isEven && 
-							isGreaterThanFive && 
-							isDivisibleByThree;
-		})
+				.filter(StreamFilterMethod::checkValidation)
 		 .toList();
 		
 		System.out.println(output); 
 
+	}
+	
+	private static boolean checkValidation(Integer number) {
+		boolean isEven = number % 2 == 0;
+		boolean isGreaterThanFive = number > 5;
+		boolean isDivisibleByThree = number % 3 == 0;
+		return isEven && isGreaterThanFive && isDivisibleByThree;
 	}
 
 }
