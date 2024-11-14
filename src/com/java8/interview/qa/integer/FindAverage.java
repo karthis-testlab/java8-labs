@@ -8,7 +8,12 @@ public class FindAverage {
 	public static void main(String[] args) {	
 		
 		List<Integer> numbers = Arrays.asList(10, 20, 30, 40, 50);
-		numbers.stream()
+		double average = numbers.stream()
+		       .mapToInt(num -> num.intValue())
+		       .average()
+		       .getAsDouble();
+		
+		System.out.println(average);
 
 	}
 
