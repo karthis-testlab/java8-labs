@@ -10,7 +10,6 @@ public class StringCase {
 		//Given input
 		List<String> words = Arrays.asList("Apple", "Banana", "Mango", "cherry", "Orange");
 
-		
 	}
 
 }
