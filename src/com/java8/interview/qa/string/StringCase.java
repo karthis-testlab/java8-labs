@@ -16,6 +16,12 @@ public class StringCase {
 		
 		System.out.println(result1);
 		
+		List<String> result2 = words.stream()
+                                    .map(String::toUpperCase)
+                                    .toList();
+		
+		System.out.println(result2);
+		
 	}
 
 }
