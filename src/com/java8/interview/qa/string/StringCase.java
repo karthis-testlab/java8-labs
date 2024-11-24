@@ -10,17 +10,19 @@ public class StringCase {
 		//Given input
 		List<String> words = Arrays.asList("Apple", "Banana", "Mango", "cherry", "Orange");
 
-		List<String> result1 = words.stream()
+		List<String> upperCase1 = words.stream()
 		                            .map(str -> str.toUpperCase())
 		                            .toList();
 		
-		System.out.println(result1);
+		System.out.println(upperCase1);
 		
-		List<String> result2 = words.stream()
+		List<String> upperCase2 = words.stream()
                                     .map(String::toUpperCase)
                                     .toList();
 		
-		System.out.println(result2);
+		System.out.println(upperCase2);
+		
+		
 		
 	}
 
