@@ -22,7 +22,11 @@ public class StringCase {
 		
 		System.out.println(upperCase2);
 		
+		List<String> lowerCase1 = words.stream()
+                .map(str -> str.toLowerCase())
+                .toList();
 		
+	    System.out.println(lowerCase1);
 		
 	}
 
